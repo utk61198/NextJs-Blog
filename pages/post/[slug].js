@@ -127,11 +127,10 @@ export async function getStaticPaths() {
   // This will give Next the list of all blog post pages that need to be
   // rendered at build time.
   const pt = posts.map(({ fields: { slug } }) => ({ params: { slug } }))
-  console.log(pt)
 
   return {
     paths:pt,
-    fallback:true
+    fallback:false
    
   }
 }
