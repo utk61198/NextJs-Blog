@@ -1,10 +1,31 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
+import { useMediaQuery } from 'react-responsive'
+
 
 export default function Layout({ children }) {
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isTabletOrMobileDevice = useMediaQuery({
+    query: '(max-device-width: 1224px)'
+  })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
+
+
+
+
+
+
+
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>Tech Blog</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,53 +34,11 @@ export default function Layout({ children }) {
       <header>
         <h1>
           <Link href="/">
-            <a>Working</a>
+            <a>Featured Posts</a>
           </Link>
         </h1>
       </header>
       <main>{children}</main>
-      <style jsx>{`
-        .container {
-          max-width: 42rem;
-          margin: 0 auto;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        header h1 a {
-          color: #000;
-          text-decoration: none;
-        }
-
-        main {
-          padding: 2rem 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-        }
-      `}</style>
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        a,
-        a:visited {
-          color: blue;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+      </div>
   )
 }

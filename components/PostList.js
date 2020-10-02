@@ -1,8 +1,32 @@
 import React from "react"
 import Link from "next/link"
+import { Picture } from 'react-responsive-picture';
+import { useMediaQuery } from 'react-responsive'
+
+
 
 export default function PostList({ posts = [] }) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isTabletOrMobileDevice = useMediaQuery({
+    query: '(max-device-width: 1224px)'
+  })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
+
+
+
+
+
+
+
+
   return (
+    <div>
     <section>
       {posts.map((post) => (
         <article key={post.sys.id}>
@@ -15,8 +39,14 @@ export default function PostList({ posts = [] }) {
             <small>
               <p>Published: {Date(post.fields.publishedDate).toString()}</p>
             </small>
+           
+            
           </header>
-          <p>{post.fields.description}</p>
+          {isDesktopOrLaptop && <p>{post.fields.description}</p>}
+
+          {isTabletOrMobileDevice && <p>{post.fields.description}</p>}
+
+        
           <p>
             <Link href={`/post/${post.fields.slug}`}>
               <a>Continue reading »</a>
@@ -24,22 +54,9 @@ export default function PostList({ posts = [] }) {
           </p>
         </article>
       ))}
-      <style jsx>{`
-        h1 {
-          margin: 0 0 0.75rem;
-          font-size: 2.5rem;
-          font-weight: 400;
-        }
-        h1 a {
-          text-decoration: none;
-        }
-        p {
-          line-height: 1.75rem;
-        }
-        article {
-          margin: 2rem 0;
-        }
-      `}</style>
+      
     </section>
+    
+    </div>
   )
 }
