@@ -13,7 +13,7 @@ export default function Layout({ children }) {
       <header>
         <h1>
           <Link href="/">
-            <a>Featured Posts</a>
+            <a>Working</a>
           </Link>
         </h1>
       </header>
