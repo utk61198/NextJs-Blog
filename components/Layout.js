@@ -3,21 +3,41 @@ import Head from "next/head"
 import Link from "next/link"
 import { useMediaQuery } from 'react-responsive'
 import Appbar from "./AppBar"
+import { CallMissedSharp } from "@material-ui/icons"
+import { makeStyles } from '@material-ui/core/styles';
+import FooterPage from "./footer"
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import {NavDropdown,Form,FormControl} from 'react-bootstrap'
 
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root:{
+    color:"primary.main"
+       
+  }
+  
+}));
 
 export default function Layout({ children }) {
+
+  const classes=useStyles()
+
 
 
 
 
   return (
-    <div>
+    <div className={classes.root}>
       <Head>
         <title>Tech Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header >
         <Appbar/>
         <h1>
           {/* <Link href="/">
