@@ -83,7 +83,7 @@ const useStyles = makeStyles({
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
-    backgroundColor:"#90caf9"
+    // backgroundColor:"#90caf9"
 
     
    }

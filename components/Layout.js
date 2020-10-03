@@ -9,6 +9,8 @@ import FooterPage from "./footer"
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import {NavDropdown,Form,FormControl} from 'react-bootstrap'
+import {Grid} from '@material-ui/core'
+import SideList from './SideList'
 
 
 
@@ -45,7 +47,15 @@ export default function Layout({ children }) {
           </Link> */}
         </h1>
       </header>
-      <main>{children}</main>
+      <Grid
+  container
+  direction="row"
+  justify="space-evenly"
+  alignItems="baseline"
+  
+> <main>{children}</main>
+<SideList/></Grid>
+     
       </div>
   )
 }
