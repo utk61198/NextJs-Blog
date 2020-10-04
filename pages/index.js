@@ -1,14 +1,28 @@
 import Head from "next/head"
 import Layout from "../components/Layout"
 import PostList from "../components/PostList"
+import { makeStyles } from '@material-ui/core/styles';
+import { Height } from "@material-ui/icons";
+
+
+
 
 export default function Index({ posts }) {
+
+
+
+
   return (
     <Layout>
       <PostList posts={posts} />
     </Layout>
+
+
+
+
   )
 }
+
 
 export async function getStaticProps() {
   // Create an instance of the Contentful JavaScript SDK

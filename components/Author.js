@@ -1,4 +1,5 @@
 import React from "react"
+import { Typography } from '@material-ui/core';
 
 export default function Author({ author }) {
   return (
@@ -8,9 +9,9 @@ export default function Author({ author }) {
         alt={author.fields.name}
       /> */}
       <div className="info">
-        <span className="name">{author.fields.name}</span>
+        <span className="name"><Typography variant="body1" color="textPrimary" align="left">{author.fields.name}</Typography></span>
         <div>
-        <span className="bio">{author.fields.bio}</span>
+        <span className="bio"><Typography variant="body2" color="textSecondary" align="left">{author.fields.bio}</Typography></span>
         </div>
       </div>
       

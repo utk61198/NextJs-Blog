@@ -76,6 +76,7 @@ const useStyles = makeStyles({
     marginRight:"3%",
     marginLeft:"3%",
      borderRadius:"3%"
+     
   },
   media: {
     height: 200,
@@ -86,7 +87,8 @@ const useStyles = makeStyles({
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
-    backgroundColor:"lightgray"
+
+  
     // backgroundColor:"#90caf9"
 
     

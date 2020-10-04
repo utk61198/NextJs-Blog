@@ -65,7 +65,7 @@ export default function Post({ post }) {
         /> */}
         <CardContent>
          
-          <Typography variant="body1" color="textSecondary" component="p">
+          <Typography variant="body1" color="textPrimary">
            {post.fields.body}
           </Typography>
         </CardContent>
@@ -74,9 +74,10 @@ export default function Post({ post }) {
     </Card>
     
       </section>
-      <footer>
+
         <Author author={post.fields.author} />
-      </footer>
+
+
       
     </article>
     </div>

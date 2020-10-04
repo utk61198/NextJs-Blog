@@ -3,7 +3,7 @@ import Head from "next/head"
 import Link from "next/link"
 import { useMediaQuery } from 'react-responsive'
 import Appbar from "./AppBar"
-import { CallMissedSharp } from "@material-ui/icons"
+import { CallMissedSharp, Height } from "@material-ui/icons"
 import { makeStyles } from '@material-ui/core/styles';
 import FooterPage from "./footer"
 import Navbar from 'react-bootstrap/Navbar';
@@ -18,13 +18,10 @@ import SideList from './SideList'
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    color:"primary.main"
-
-       
+    color:"primary.main",
+    
   },
-  grid:{
-    backgroundColor:'lightgray'
-  }
+ 
   
 }));
 
@@ -55,8 +52,7 @@ export default function Layout({ children }) {
   container
   direction="row"
   justify="space-evenly"
-  alignItems="baseline"
-  className={classes.grid}
+  alignItems="center"
   
 > <main>{children}</main>
 <SideList/></Grid>
