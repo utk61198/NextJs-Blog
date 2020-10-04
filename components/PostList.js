@@ -129,6 +129,6 @@ Continue reading...</Button>
     </Card>
     </article>
 
-  ))};
+  ))}
   </div>)
 }
