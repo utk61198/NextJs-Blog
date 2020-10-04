@@ -19,7 +19,11 @@ import SideList from './SideList'
 const useStyles = makeStyles((theme) => ({
   root:{
     color:"primary.main"
+
        
+  },
+  grid:{
+    backgroundColor:'lightgray'
   }
   
 }));
@@ -52,6 +56,7 @@ export default function Layout({ children }) {
   direction="row"
   justify="space-evenly"
   alignItems="baseline"
+  className={classes.grid}
   
 > <main>{children}</main>
 <SideList/></Grid>

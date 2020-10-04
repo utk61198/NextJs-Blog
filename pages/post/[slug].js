@@ -30,9 +30,7 @@ export default function Slug({ post }) {
       <Head>
         <title>{post.fields.title} — My Next.js Static Blog</title>
       </Head>
-      <div className={style.conatiner}>
      <Post post={post}/>
-       </div>
        
     </Layout>
   )

@@ -5,19 +5,36 @@ import Head from "next/head"
 import Link from "next/link"
 import { Typography } from '@material-ui/core';
 import { makeStyles, rgbToHex } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 
-const usestyle=makeStyles({
-
+const useStyles = makeStyles({
+  root: {
+    maxWidth:700,
+    marginBottom:"5%",
+    marginTop:"5%",
+    marginRight:"3%",
+    marginLeft:"3%",
+     borderRadius:"3%"
+  },
+  media: {
+    height: 200,
+  },
   container:{
-    display:"flex",
-   
-     alignItems:"center",
-     justifyContent:"center",
-     width:"80%"
+   display:"flex",
+   flexDirection:"column",
+    alignItems:"center",
+    justifyContent:"center",
+    maxWidth:"80%"
+    // backgroundColor:"#90caf9"
 
-  }
+    
+   }
 });
 
 
@@ -25,9 +42,9 @@ const usestyle=makeStyles({
 
 export default function Post({ post }) {
     console.log("in here")
-    const style=usestyle();
+    const classes=useStyles();
   return (
-      <div className={usestyle.container}>
+      <div className={useStyles.container}>
     <article>
       <header>
         <Typography variant="h3" align="center" color="primary">
@@ -40,10 +57,22 @@ export default function Post({ post }) {
         
       </header>
       <section>
-        <Typography variant="body1" align="justified" color="textPrimary">
-        {post.fields.body} 
-
-        </Typography>
+      <Card className={classes.root}>
+      <CardActionArea>
+        {/* <CardMedia
+          className={classes.media}
+          image={post.fields.img}
+        /> */}
+        <CardContent>
+         
+          <Typography variant="body1" color="textSecondary" component="p">
+           {post.fields.body}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+  
+    </Card>
+    
       </section>
       <footer>
         <Author author={post.fields.author} />

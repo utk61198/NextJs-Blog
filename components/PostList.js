@@ -81,10 +81,12 @@ const useStyles = makeStyles({
     height: 200,
   },
   container:{
+    marginTop:"5%",
    display:"flex",
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
+    backgroundColor:"lightgray"
     // backgroundColor:"#90caf9"
 
     
