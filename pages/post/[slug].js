@@ -4,18 +4,36 @@ import Layout from "../../components/Layout"
 import Post from "../../components/Post"
 import Markdown from "react-markdown"
 import Author from "../../components/Author"
+import { makeStyles, rgbToHex } from '@material-ui/core/styles';
 
+
+
+const usestyle=makeStyles({
+
+  container:{
+    display:"flex",
+    flexDirection:"column",
+   
+     alignItems:"center",
+     justifyContent:"center",
+     width:"80%"
+
+  }
+});
 
 
 export default function Slug({ post }) {
+  const style=usestyle();
+
   return (
     <Layout>
       <Head>
         <title>{post.fields.title} — My Next.js Static Blog</title>
       </Head>
-     <Post post={post}>
+      <div className={style.conatiner}>
+     <Post post={post}/>
+       </div>
        
-     </Post>
     </Layout>
   )
 }

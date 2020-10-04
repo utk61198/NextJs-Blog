@@ -65,6 +65,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Autorenew, FullscreenExit } from '@material-ui/icons';
 import { palette } from '@material-ui/system';
+import Particles from "react-tsparticles";
+
 
 const useStyles = makeStyles({
   root: {
@@ -94,9 +96,12 @@ export default function PostList({ posts = [] }) {
 
   return (
     <div className={classes.container}>
+     
+    
     {posts.map((post) => (
 
 <article key={post.sys.id}>
+
 
     <Card className={classes.root}>
       <CardActionArea>
