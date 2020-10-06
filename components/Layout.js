@@ -21,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
     color:"primary.main",
     
   },
+  grid:{
+    // backgroundColor:"#121212",
+    // height:"1080px"
+    backgroundImage:"url(../public/static/bg.jpg)",
+  }
  
   
 }));
@@ -53,9 +58,11 @@ export default function Layout({ children }) {
   direction="row"
   justify="space-evenly"
   alignItems="center"
+  className={classes.grid}
   
 > <main>{children}</main>
-<SideList/></Grid>
+</Grid>
+<FooterPage></FooterPage>
      
       </div>
   )
