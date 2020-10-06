@@ -72,17 +72,15 @@ const useStyles = makeStyles({
   root: {
     maxWidth:700,
     marginBottom:"5%",
-    marginTop:"5%",
     marginRight:"3%",
     marginLeft:"3%",
-     borderRadius:"3%"
      
   },
   media: {
     height: 200,
   },
   container:{
-    marginTop:"5%",
+   
    display:"flex",
    flexDirection:"column",
     alignItems:"center",
@@ -92,6 +90,16 @@ const useStyles = makeStyles({
     // backgroundColor:"#90caf9"
 
     
+   },
+   cardcontent:{
+     backgroundColor:"#282828",
+     color:"white"
+
+   },
+   btn:{
+     color:"white",
+     fontStyle:"italic",
+     fontWeight:"bold",
    }
 });
 
@@ -108,22 +116,22 @@ export default function PostList({ posts = [] }) {
 
 
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea >
         <CardMedia
           className={classes.media}
           image={post.fields.img}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+        <CardContent className={classes.cardcontent} >
+          <Typography gutterBottom variant="h4" component="h2">
             {post.fields.title}  </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" component="p">
            {post.fields.description}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.cardcontent} >
      
-        <Button size="small" color="primary" href={`/post/${post.fields.slug}`}>
+        <Button size="small" color="white"  href={`/post/${post.fields.slug}`} className={classes.btn}>
 Continue reading...</Button>
       </CardActions>
     </Card>

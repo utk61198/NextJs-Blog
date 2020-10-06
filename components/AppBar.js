@@ -17,18 +17,23 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Link from "next/link"
+
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor:"black",
+    paddingTop:"2%"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -40,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+   
   },
   hide: {
     display: 'none',
@@ -100,8 +106,8 @@ export default function Appbar() {
         })}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap className={classes.title}>
-RITESHIFT          </Typography>
+          <Typography variant="h3" noWrap className={classes.title} align="center">
+RITESHIFT   </Typography>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -137,7 +143,10 @@ RITESHIFT          </Typography>
         </div>
         <List>
          <ListItem button>
-          <ListItemText>HOME</ListItemText>
+          <ListItemText><Link href="/"><a>HOME</a></Link></ListItemText>
+         </ListItem>
+         <ListItem button>
+          <ListItemText>FEATURED</ListItemText>
          </ListItem>
          <ListItem button>
           <ListItemText>ABOUT</ListItemText>

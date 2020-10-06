@@ -15,23 +15,24 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth:700,
+    maxWidth:"500",
     marginBottom:"5%",
     marginTop:"5%",
     marginRight:"3%",
     marginLeft:"3%",
-     borderRadius:"3%"
+   borderRadius:"3%"
+    
   },
   media: {
-    height: 200,
+    height: 400,
   },
   container:{
    display:"flex",
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
-    maxWidth:"80%"
-    // backgroundColor:"#90caf9"
+    marginLeft:"auto",
+    marginRight:"auto"
 
     
    }
@@ -47,35 +48,45 @@ export default function Post({ post }) {
       <div className={useStyles.container}>
     <article>
       <header>
-        <Typography variant="h3" align="center" color="primary">
-          {post.fields.title}
-
-        </Typography>
+     
             <Typography variant="caption" align="center" color="inherent">
-            <p>Published: {Date(post.fields.publishedDate).toString()}</p>
+            <p>{Date(post.fields.publishedDate).toString()}</p>
             </Typography>
         
       </header>
-      <section>
-      <Card className={classes.root}>
+      <Card className={classes.root} alignItems="center">
       <CardActionArea>
-        {/* <CardMedia
+       <CardContent>
+       <Typography variant="h3" color="primary">
+          {post.fields.title}
+
+        </Typography>
+       </CardContent>
+       
+        <CardMedia
           className={classes.media}
           image={post.fields.img}
-        /> */}
+        />
+        
         <CardContent>
          
           <Typography variant="body1" color="textPrimary">
            {post.fields.body}
           </Typography>
+
+          
         </CardContent>
+    
       </CardActionArea>
   
     </Card>
+    <div className={classes.container}>
+    <Author author={post.fields.author} />
     
-      </section>
+    </div>
 
-        <Author author={post.fields.author} />
+
+       
 
 
       

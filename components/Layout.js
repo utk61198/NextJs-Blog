@@ -18,15 +18,12 @@ import SideList from './SideList'
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    color:"primary.main",
+    background: 'rgb(63,94,251)',
+    background: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,70,1) 100%)'
+  
     
   },
-  grid:{
-    // backgroundColor:"#121212",
-    // height:"1080px"
-    backgroundImage:"url(../public/static/bg.jpg)",
-  }
- 
+
   
 }));
 
@@ -53,17 +50,11 @@ export default function Layout({ children }) {
           </Link> */}
         </h1>
       </header>
-      <Grid
-  container
-  direction="row"
-  justify="space-evenly"
-  alignItems="center"
-  className={classes.grid}
-  
-> <main>{children}</main>
-</Grid>
+    <main>{children}</main>
 <FooterPage></FooterPage>
      
       </div>
   )
 }
+
+

@@ -10,8 +10,36 @@ import { makeStyles, rgbToHex } from '@material-ui/core/styles';
 
 
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth:700,
+    marginBottom:"5%",
+    marginTop:"5%",
+    marginRight:"3%",
+    marginLeft:"3%",
+     borderRadius:"3%"
+     
+  },
+  media: {
+    height: 200,
+  },
+  container:{
+    marginTop:"5%",
+   display:"flex",
+   flexDirection:"column",
+    alignItems:"center",
+    justifyContent:"center",
+
+  
+    // backgroundColor:"#90caf9"
+
+    
+   }
+});
 
 export default function Slug({ post }) {
+  const classes = useStyles();
+
 
   return (
     <Layout>
@@ -19,7 +47,9 @@ export default function Slug({ post }) {
       <Head>
         <title>{post.fields.title} — My Next.js Static Blog</title>
       </Head>
+      <div className={classes.container}>
      <Post post={post}/>
+     </div>
        
     </Layout>
   )
