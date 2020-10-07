@@ -18,10 +18,8 @@ import SideList from './SideList'
 
 const useStyles = makeStyles((theme) => ({
   root:{
-    background: 'rgb(63,94,251)',
-    background: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,70,1) 100%)'
-  
-    
+    background: 'rgb(177,179,171)',
+    background: 'radial-gradient(circle, rgba(177,179,171,1) 0%, rgba(82,84,82,1) 100%)',
   },
 
   

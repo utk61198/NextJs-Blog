@@ -7,10 +7,10 @@ import Link from '@material-ui/core/Link';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary">
+    <Typography variant="body2" style={{color:"white"}} align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link href="/" style={{color:"white"}}>
+        RITESHIFT
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -45,7 +45,7 @@ export default function FooterPage() {
      
       <footer className={classes.footer}>
         <Container maxWidth="sm">
-          <Typography variant="body1">My sticky footer can be found here.</Typography>
+          <Typography variant="body1"></Typography>
           <Copyright />
         </Container>
       </footer>

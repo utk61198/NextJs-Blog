@@ -104,10 +104,13 @@ export default function Appbar() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+      
       >
         <Toolbar>
+
           <Typography variant="h3" noWrap className={classes.title} align="center">
-RITESHIFT   </Typography>
+            <img src="https://www.logogenie.net/download/preview/engine/7331485" height="100px"/>
+   </Typography>
           <IconButton
             color="inherit"
             aria-label="open drawer"

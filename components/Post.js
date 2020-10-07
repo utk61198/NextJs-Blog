@@ -35,7 +35,12 @@ const useStyles = makeStyles({
     marginRight:"auto"
 
     
-   }
+   },
+   cardcontent:{
+    backgroundColor:"#282828",
+    color:"white"
+
+  }
 });
 
 
@@ -68,7 +73,7 @@ export default function Post({ post }) {
           image={post.fields.img}
         />
         
-        <CardContent>
+        <CardContent className={classes.cardcontent}>
          
           <Typography variant="body1" color="textPrimary">
            {post.fields.body}
