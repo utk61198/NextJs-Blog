@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" style={{color:"white"}} align="center">
       {'Copyright © '}
       <Link href="/" style={{color:"white"}}>
-        RITESHIFT
+        Daily Reboots
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

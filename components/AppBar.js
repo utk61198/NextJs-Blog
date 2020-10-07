@@ -108,8 +108,8 @@ export default function Appbar() {
       >
         <Toolbar>
 
-          <Typography variant="h3" noWrap className={classes.title} align="center">
-            <img src="https://www.logogenie.net/download/preview/engine/7331485" height="100px"/>
+          <Typography variant="h3" noWrap className={classes.title} align="left">
+            <img src="/logo.png" height="65px"/>
    </Typography>
           <IconButton
             color="inherit"
