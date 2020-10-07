@@ -75,7 +75,8 @@ export default function Post({ post }) {
         
         <CardContent className={classes.cardcontent}>
          
-          <Typography variant="body1" color="textPrimary">
+          <Typography variant="body2" component="p">
+          
            {post.fields.body}
           </Typography>
 
