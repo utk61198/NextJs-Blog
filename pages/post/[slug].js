@@ -5,55 +5,37 @@ import Post from "../../components/Post"
 import Markdown from "react-markdown"
 import Author from "../../components/Author"
 import { makeStyles, rgbToHex } from '@material-ui/core/styles';
-
-
-
-
-
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth:700,
-    marginBottom:"5%",
-    marginTop:"5%",
-    marginRight:"3%",
-    marginLeft:"3%",
-     borderRadius:"3%"
-     
-  },
-  media: {
-    height: 200,
-  },
-  container:{
-    marginTop:"5%",
-   display:"flex",
-   flexDirection:"column",
-    alignItems:"center",
-    justifyContent:"center",
-
-  
-    // backgroundColor:"#90caf9"
-
-    
-   }
-});
+import { Grid } from "@material-ui/core"
+import SideList from "../../components/SideList"
 
 export default function Slug({ post }) {
-  const classes = useStyles();
+
 
 
   return (
+    <div>
+      <head>
+     
+      </head>
+
+
     <Layout>
       
-      <Head>
-        <title>{post.fields.title} — My Next.js Static Blog</title>
-      </Head>
-      <div className={classes.container}>
-     <Post post={post}/>
-     </div>
-       
+        <Grid
+  container
+  direction="row"
+  justify="space-evenly"
+  alignItems="stretch"
+  
+> 
+
+
+
+      <Post post={post}/>
+      </Grid>
     </Layout>
-  )
+    </div>)
+    
 }
 
 export async function getStaticProps(context) {

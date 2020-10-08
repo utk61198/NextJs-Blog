@@ -1,79 +1,23 @@
-// import React from "react"
-// import Link from "next/link"
-// import { Picture } from 'react-responsive-picture';
-// import { useMediaQuery } from 'react-responsive'
-
-
-
-
-// export default function PostList({ posts = [] }) {
-//   const isDesktopOrLaptop = useMediaQuery({
-//     query: '(min-device-width: 1224px)'
-//   })
-//   const isBigScreen = useMediaQuery({ query: '(min-device-width: 1824px)' })
-//   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-//   const isTabletOrMobileDevice = useMediaQuery({
-//     query: '(max-device-width: 1224px)'
-//   })
-//   const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-//   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-
-// return (
-//     <div>
-//     <section>
-//       {posts.map((post) => (
-//         <article key={post.sys.id}>
-//           <header>
-//             <h1>
-//               <Link href={`/post/${post.fields.slug}`}>
-//                 <a>{post.fields.title}</a>
-//               </Link>
-//             </h1>
-//             <small>
-//               <p>Published: {Date(post.fields.publishedDate).toString()}</p>
-//             </small>
-           
-            
-//           </header>
-//           {isDesktopOrLaptop && <p>{post.fields.description}</p>}
-
-//           {isTabletOrMobileDevice && <p>{post.fields.description}</p>}
-
-        
-//           <p>
-//             <Link href={`/post/${post.fields.slug}`}>
-//               <a>Continue reading »</a>
-//             </Link>
-//           </p>
-//         </article>
-//       ))}
-      
-//     </section>
-    
-//     </div>
-//   )
-// }
-
 import React from 'react';
 import { makeStyles, rgbToHex } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+import {Card,Grid} from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Autorenew, FullscreenExit } from '@material-ui/icons';
+import { Autorenew, FullscreenExit,Paper} from '@material-ui/core';
 import { palette } from '@material-ui/system';
 import Particles from "react-tsparticles";
+import Post from './Post';
 
 
 const useStyles = makeStyles({
   root: {
-    maxWidth:700,
-    marginBottom:"5%",
-    marginRight:"3%",
-    marginLeft:"3%",
+    borderRadius:"5%"
+
+   
      
   },
   media: {
@@ -85,21 +29,19 @@ const useStyles = makeStyles({
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
+    marfinLeft:"5%",
 
   
     // backgroundColor:"#90caf9"
 
     
    },
-   cardcontent:{
-     backgroundColor:"#282828",
-     color:"white"
-
-   },
+   
    btn:{
-     color:"white",
+    //  color:"black",
      fontStyle:"italic",
      fontWeight:"bold",
+     
    }
 });
 
@@ -107,36 +49,93 @@ export default function PostList({ posts = [] }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-     
+<div className={classes.container}>
+
     
     {posts.map((post) => (
 
 <article key={post.sys.id}>
 
 
-    <Card className={classes.root}>
-      <CardActionArea >
+
+<Grid
+  container
+  direction="row"
+  justify="space-around"
+  alignItems="center"
+  >
+
+<Paper
+elevation={5}
+  style={{
+    maxWidth:400,
+  
+    marginBottom:"2%",
+
+    
+    
+ 
+   
+
+  }}
+>
+
+  <Card style={
+    {
+    }
+  }>
+  <CardActionArea>
         <CardMedia
-          className={classes.media}
+          component="img"
+         
           image={post.fields.img}
-        />
-        <CardContent className={classes.cardcontent} >
-          <Typography gutterBottom variant="h4" component="h2">
-            {post.fields.title}  </Typography>
-          <Typography variant="body2" component="p">
-           {post.fields.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.cardcontent} >
-     
-        <Button size="small" color="white"  href={`/post/${post.fields.slug}`} className={classes.btn}>
-Continue reading...</Button>
-      </CardActions>
-    </Card>
+       />
+
+        </CardActionArea>
+
+  </Card>
+
+
+</Paper>
+<div style={{
+maxWidth:700,
+ paddingLeft:"5%",
+ paddingTop:"1%",
+color:"white",
+marginBottom:"2%"
+
+}}>
+<Typography gutterBottom variant="h4" component="h2" >
+           <u> <a  href={`/post/${post.fields.slug}`}>{post.fields.title}</a> </u> </Typography>
+            
+            <Typography gutterBottom variant="body2" color="inherent" >
+            {Date(post.fields.publishedDate).toString()} </Typography>
+<Typography>
+<Typography gutterBottom variant="body1" >
+           {post.fields.description}  </Typography>
+
+<Button size="small" color="primary"  href={`/post/${post.fields.slug}`} className={classes.btn}>
+Read more...</Button>
+</Typography>
+
+
+
+</div>
+
+
+
+</Grid>
+
+ 
+
+
+
+    
     </article>
 
   ))}
-  </div>)
+  </div>
+
+
+  )
 }

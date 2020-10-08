@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "heroku-postbuild": "npm run build"
-    
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

@@ -3,7 +3,7 @@ import Markdown from "react-markdown"
 import Author from "./Author"
 import Head from "next/head"
 import Link from "next/link"
-import { Typography } from '@material-ui/core';
+import { Typography ,Paper} from '@material-ui/core';
 import { makeStyles, rgbToHex } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -14,33 +14,35 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth:"500",
-    marginBottom:"5%",
-    marginTop:"5%",
-    marginRight:"3%",
-    marginLeft:"3%",
-   borderRadius:"3%"
-    
-  },
-  media: {
-    height: 400,
-  },
-  container:{
-   display:"flex",
-   flexDirection:"column",
-    alignItems:"center",
-    justifyContent:"center",
-    marginLeft:"auto",
-    marginRight:"auto"
 
-    
-   },
-   cardcontent:{
-    backgroundColor:"#282828",
-    color:"white"
+  root:{maxWidth:700,
+  marginBottom:"5%",
+  marginRight:"3%",
+  marginLeft:"3%",
+   
+},
+media: {
+  height: 200,
+},
+container:{
+ 
+ display:"flex",
+ flexDirection:"column",
+  alignItems:"center",
+  justifyContent:"center",
+  maxWidth:"80%",
+  color:"white"
 
-  }
+
+  // backgroundColor:"#90caf9"
+
+  
+ },
+ cardcontent:{
+   backgroundColor:"white",
+   color:"black"
+
+ }
 });
 
 
@@ -50,22 +52,63 @@ export default function Post({ post }) {
     console.log("in here")
     const classes=useStyles();
   return (
-      <div className={useStyles.container}>
-    <article>
-      <header>
-     
-            <Typography variant="caption" align="center" color="inherent">
+      <div className={classes.container}>
+        <Typography variant="h3" align="center">
+          {post.fields.title}
+          </Typography>
+          
+<Paper
+elevation={10}
+  style={{
+    maxWidth:600,
+  
+    marginTop:"3%",
+    
+    
+ 
+   
+
+  }}
+>
+
+  <Card>
+  <CardActionArea>
+        <CardMedia
+          component="img"
+         
+          image={post.fields.img}
+       />
+
+        </CardActionArea>
+
+  </Card>
+
+
+</Paper>
+          
+          <Typography gutterBottom variant="caption" align="center" color="inherent">
             <p>{Date(post.fields.publishedDate).toString()}</p>
             </Typography>
-        
-      </header>
+            <Typography gutterBottom variant="body1">
+          
+          {post.fields.body}
+         </Typography>
+
+
+
+    {/* <article>
+     
       <Card className={classes.root} alignItems="center">
       <CardActionArea>
-       <CardContent>
-       <Typography variant="h3" color="primary">
+       <CardContent className={classes.cardcontent}>
+       <Typography variant="h3" align="center">
           {post.fields.title}
 
         </Typography>
+        <Typography variant="caption" align="center" color="inherent">
+            <p>{Date(post.fields.publishedDate).toString()}</p>
+            </Typography>
+
        </CardContent>
        
         <CardMedia
@@ -75,7 +118,7 @@ export default function Post({ post }) {
         
         <CardContent className={classes.cardcontent}>
          
-          <Typography variant="body2" component="p">
+          <Typography variant="body1">
           
            {post.fields.body}
           </Typography>
@@ -86,8 +129,9 @@ export default function Post({ post }) {
       </CardActionArea>
   
     </Card>
-    <div className={classes.container}>
     <Author author={post.fields.author} />
+    <div className={classes.container}>
+   
     
     </div>
 
@@ -96,7 +140,7 @@ export default function Post({ post }) {
 
 
       
-    </article>
+    </article> */}
     </div>
   )
 }

@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     backgroundColor:"black",
-    paddingTop:"2%"
+    paddingTop:"2%",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginRight: drawerWidth,
+    backgroundColor:"black"
+
   },
   title: {
     flexGrow: 1,
@@ -56,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor:"black"
   },
   drawerHeader: {
     display: 'flex',
@@ -64,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
+    backgroundColor:"black"
+
   },
   content: {
     flexGrow: 1,
@@ -73,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginRight: -drawerWidth,
+    backgroundColor:"black"
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -80,7 +86,19 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginRight: 0,
+    backgroundColor:"black",
+    color:"white"
+
   },
+  list:{
+    backgroundColor:"black",
+    color:"white"
+
+  },
+  icon:{
+    color:"white"
+
+  }
 }));
 
 export default function Appbar() {
@@ -107,10 +125,17 @@ export default function Appbar() {
       
       >
         <Toolbar>
+          <Link href="/">
+          <Typography variant="h3" noWrap className={classes.title} align="left" paddingTop="1%">
+            <img src="/logo.png" style={{
+   height:"80px",
+   cursor:"pointer"
 
-          <Typography variant="h3" noWrap className={classes.title} align="left">
-            <img src="/logo.png" height="65px"/>
-   </Typography>
+            }}/>
+            </Typography>
+          </Link>
+         
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -140,11 +165,11 @@ export default function Appbar() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className={classes.icon}>
             {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <List>
+        <List className={classes.list}>
          <ListItem button>
           <ListItemText><Link href="/"><a>HOME</a></Link></ListItemText>
          </ListItem>

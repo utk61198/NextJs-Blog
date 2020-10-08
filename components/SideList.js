@@ -1,21 +1,23 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
+import {Box,Container,Typography} from '@material-ui/core'
 import DraftsIcon from '@material-ui/icons/Drafts';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor:"#282828",
-    color:"white"
+
     
   },
+  cont:{
+    backgroundColor:"black"
+  }
 }));
 
 function ListItemLink(props) {
@@ -27,12 +29,18 @@ export default function SideList({ posts = [] }) {
 
   return (
     <div className={classes.root}>
-     
-      <List component="nav" aria-label="secondary mailbox folders">
+     <List component="nav" aria-label="secondary mailbox folders">
       {posts.map((post) => (
         <ListItem>
           <ListItemText>
-          {post.fields.title}
+            <a href={`/post/${post.fields.slug}`}><Typography color="primary" variant="title" ><u>
+
+            {post.fields.title}
+            </u>
+
+            </Typography>
+        
+          </a>
         </ListItemText>
 
         </ListItem>
@@ -41,6 +49,11 @@ export default function SideList({ posts = [] }) {
 
   ))}
       </List>
+
+
+     
+    
+      
     </div>
   );
 }
