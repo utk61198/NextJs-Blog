@@ -32,18 +32,15 @@ export default function Index({ posts }) {
 
 
   return (
-    <div>
+  <div>
       <head>
+        
      
       </head>
 
 
     <Layout>
-   
-      
-  
 
-       
       <PostList posts={posts}/>
       {/* <SideList posts={posts}/> */}
   

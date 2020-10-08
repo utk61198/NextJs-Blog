@@ -52,6 +52,13 @@ export default function Post({ post }) {
     console.log("in here")
     const classes=useStyles();
   return (
+    <div>
+    <Head>
+      <meta name="desciption" content={post.fields.title}/>
+      <meta name="title" content={post.fields.title}/>
+
+
+    </Head>
       <div className={classes.container}>
         <Typography variant="h3" align="center">
           {post.fields.title}
@@ -141,6 +148,7 @@ elevation={10}
 
       
     </article> */}
+    </div>
     </div>
   )
 }
