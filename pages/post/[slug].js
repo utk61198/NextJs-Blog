@@ -14,27 +14,26 @@ export default function Slug({ post }) {
 
   return (
     <div>
-      <head>
-     
-      </head>
+      <Head>
+      <meta name="desciption" content={post.fields.title}/>
+      <meta name="title" content={post.fields.title}/>
+      </Head>
 
-
+      
     <Layout>
       
-        <Grid
-  container
-  direction="row"
-  justify="space-evenly"
-  alignItems="stretch"
   
-> 
-
 
 
       <Post post={post}/>
-      </Grid>
     </Layout>
+
+
+
     </div>)
+  
+
+
     
 }
 
