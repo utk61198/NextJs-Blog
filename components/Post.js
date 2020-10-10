@@ -31,7 +31,7 @@ container:{
   alignItems:"center",
   justifyContent:"center",
   maxWidth:"80%",
-  color:"white",
+  color:"#F9D342",
   marginLeft:"10%"
 
 
@@ -55,7 +55,12 @@ export default function Post({ post }) {
   return (
     
       <div className={classes.container}>
-        <Typography variant="h3" align="center">
+      <Typography gutterBottom variant="h4" component="h2"
+      align="center"
+style={{
+  fontFamily:"Oswald"
+}} >
+
           {post.fields.title}
           </Typography>
           
@@ -91,7 +96,13 @@ elevation={10}
           <Typography gutterBottom variant="caption" align="center" color="inherent">
             <p>{Date(post.fields.publishedDate).toString()}</p>
             </Typography>
-            <Typography gutterBottom variant="body1">
+            <Typography gutterBottom variant="body1" style={{
+  color:"white",
+  fontSize:"21px",
+  lineHeight:"160%",
+  fontFamily:"Roboto"
+  
+}} >
           
           {post.fields.body}
          </Typography>

@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     backgroundColor:"black",
     paddingTop:"2%",
+    color:"white"
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -171,10 +172,10 @@ export default function Appbar() {
         </div>
         <List className={classes.list}>
          <ListItem button>
-          <ListItemText><Link href="/"><a>HOME</a></Link></ListItemText>
+          <ListItemText><Link href="/"><a>BLOG</a></Link></ListItemText>
          </ListItem>
          <ListItem button>
-          <ListItemText>FEATURED</ListItemText>
+          <ListItemText><Link href="/featured">FEATURED</Link></ListItemText>
          </ListItem>
          <ListItem button>
           <ListItemText>ABOUT</ListItemText>

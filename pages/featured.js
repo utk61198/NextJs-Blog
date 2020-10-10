@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
  
   
 }));
-export default function Index({ posts }) {
+export default function Featured({ posts }) {
   const classes=useStyles()
 
 
@@ -48,7 +48,7 @@ export default function Index({ posts }) {
 
     <Layout>
 
-      <Hero/>
+      {/* <Hero/> */}
    
    
 

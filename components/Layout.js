@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   root:{
     // background: 'rgb(177,179,171)',
     // background: 'radial-gradient(circle, rgba(177,179,171,1) 0%, rgba(82,84,82,1) 100%)',
-    backgroundColor:"black"
+    // backgroundColor:"white"
+    background: "black", /* fallback for old browsers */
   },
   bgv:{
     

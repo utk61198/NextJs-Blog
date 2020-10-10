@@ -11,6 +11,8 @@ import { Autorenew, FullscreenExit,Paper} from '@material-ui/core';
 import { palette } from '@material-ui/system';
 import Particles from "react-tsparticles";
 import Post from './Post';
+import { Divider } from '@material-ui/core';
+
 
 
 const useStyles = makeStyles({
@@ -20,16 +22,15 @@ const useStyles = makeStyles({
    
      
   },
-  media: {
-    height: 200,
-  },
+
   container:{
    
    display:"flex",
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
-    marfinLeft:"5%",
+    marginLeft:"5%",
+    marginTop:"2%"
 
   
     // backgroundColor:"#90caf9"
@@ -41,6 +42,8 @@ const useStyles = makeStyles({
     //  color:"black",
      fontStyle:"italic",
      fontWeight:"bold",
+     color:"white",
+     fontSize:"18px"
      
    }
 });
@@ -50,6 +53,10 @@ export default function PostList({ posts = [] }) {
 
   return (
 <div className={classes.container}>
+  <head>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
+  </head>
 
     
     {posts.map((post) => (
@@ -68,7 +75,7 @@ export default function PostList({ posts = [] }) {
 <Paper
 elevation={5}
   style={{
-    maxWidth:400,
+    maxWidth:500,
   
     marginBottom:"2%",
 
@@ -100,23 +107,35 @@ elevation={5}
 <div style={{
 maxWidth:700,
  paddingLeft:"5%",
- paddingTop:"1%",
-color:"white",
+color:"#F9D342",
 marginBottom:"2%"
 
 }}>
-<Typography gutterBottom variant="h4" component="h2" >
-           <u> <a  href={`/post/${post.fields.slug}`}>{post.fields.title}</a> </u> </Typography>
+<Typography gutterBottom variant="h4" component="h2"
+style={{
+  fontFamily:"Oswald"
+}} >
+            <a  href={`/post/${post.fields.slug}`}>{post.fields.title}</a>  </Typography>
             
-            <Typography gutterBottom variant="body2" color="inherent" >
+            <Typography gutterBottom variant="body2" color="inherit"
+            style={{
+              color:"white"
+            }}  >
             {Date(post.fields.publishedDate).toString()} </Typography>
 <Typography>
-<Typography gutterBottom variant="body1" >
+<Typography gutterBottom variant="body1" style={{
+  color:"white",
+  fontSize:"21px",
+  lineHeight:"160%",
+  fontFamily:"Roboto"
+  
+}} >
            {post.fields.description}  </Typography>
 
-<Button size="small" color="primary"  href={`/post/${post.fields.slug}`} className={classes.btn}>
-Read more...</Button>
+<Button size="small"   href={`/post/${post.fields.slug}`} className={classes.btn}>
+<u>Read more..</u></Button>
 </Typography>
+
 
 
 
@@ -130,7 +149,14 @@ Read more...</Button>
 
 
 
-    
+<Divider variant="middle"
+style={{
+  color:"white",
+  backgroundColor:"white",
+  marginBottom:"4%",
+  marginTop:"4%"
+}}></Divider>
+
     </article>
 
   ))}
