@@ -48,7 +48,7 @@ const useStyles = makeStyles({
    },
    link:{
      textDecoration:"none",
-     color:"#F9D342"
+     color:"#FEE715FF"
    }
 });
 

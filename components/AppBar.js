@@ -12,11 +12,11 @@ const useStyles=makeStyles({
 
 appbar:{
 
-  backgroundColor:"black",
-  color:"#F9D342"
+  backgroundColor:"#101820FF",
+  color:"#FEE715FF"
 },
 navlink:{
-  color:"#F9D342",
+  color:"#FEE715FF",
   fontFamily:"Oswald",
   textDecoration:"none"
   
@@ -52,7 +52,7 @@ export default function Appbar(){
 
 
 
-  <Navbar.Toggle color="#F9D342" aria-controls="responsive-navbar-nav">
+  <Navbar.Toggle color="#FEE715FF" aria-controls="responsive-navbar-nav">
 
     <MenuIcon className={classes.navlink}/>
   </Navbar.Toggle>
@@ -65,22 +65,22 @@ export default function Appbar(){
     <Nav className="ml-auto">
 
 
-      <Nav.Link href="/" ><Typography variant="h6" className={classes.navlink}>
+      <Nav.Link href="/" ><Typography variant="h5" className={classes.navlink}>
       BLOG
         </Typography></Nav.Link>
 
 
-        <Nav.Link href="/featured" ><Typography  variant="h6" className={classes.navlink}>
+        <Nav.Link href="/featured" ><Typography  variant="h5" className={classes.navlink}>
         FEATURED
         </Typography></Nav.Link>
 
 
-        <Nav.Link><Typography  variant="h6" className={classes.navlink}>
+        <Nav.Link><Typography  variant="h5" className={classes.navlink}>
         ABOUT
         </Typography></Nav.Link>
 
 
-        <Nav.Link href="/contact"><Typography  variant="h6" className={classes.navlink}>
+        <Nav.Link href="/contact"><Typography  variant="h5" className={classes.navlink}>
        CONTACT
         </Typography></Nav.Link>
        

@@ -76,7 +76,7 @@ export default function Hero() {
 <Typist>
   <Typography variant="h4" component="p" align="center"
   style={{
-    color:"#F9D342",
+    color:"#FEE715FF",
     fontFamily:"Monoton"
     
    

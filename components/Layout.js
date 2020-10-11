@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     // background: 'rgb(177,179,171)',
     // background: 'radial-gradient(circle, rgba(177,179,171,1) 0%, rgba(82,84,82,1) 100%)',
     // backgroundColor:"white"
-    background: "black", /* fallback for old browsers */
+    background: "#101820FF", /* fallback for old browsers */
   },
   bgv:{
     

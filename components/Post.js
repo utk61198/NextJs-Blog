@@ -32,7 +32,7 @@ container:{
   alignItems:"center",
   justifyContent:"center",
   maxWidth:"80%",
-  color:"#F9D342",
+  color:"#FEE715FF",
   marginLeft:"10%",
 
 
