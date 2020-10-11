@@ -4,12 +4,13 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Social from "./social"
 
 function Copyright() {
 
   
   return (
-    <Typography variant="body2" style={{color:"white"}} align="center">
+    <Typography gutterBottom style={{color:"white",fontSize:"130%",marginBottom:"3%"}} align="center">
       {'Copyright © '}
       <Link href="/" style={{color:"white"}}>
         Daily Reboots
@@ -49,6 +50,7 @@ export default function FooterPage() {
         <Container maxWidth="sm">
           <Typography variant="body1"></Typography>
           <Copyright />
+          <Social/>
          
         </Container>
       </footer>

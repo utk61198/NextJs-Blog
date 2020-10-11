@@ -14,6 +14,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import emailjs from 'emailjs-com';
 import Layout from "../components/Layout"
+import dynamic from 'next/dynamic'
+import MailRoundedIcon from '@material-ui/icons/MailRounded';
+
+
+const DynamicComponent2 = dynamic(() => import('../components/Layout'))
+
 
 function Copyright() {
   return (
@@ -34,25 +40,31 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    background: "#E0EAFC",/* fallback for old browsers */
-background: "-webkit-linear-gradient(to right, #CFDEF3, #E0EAFC)",  /* Chrome 10-25, Safari 5.1-6 */
-background: "linear-gradient(to right, #CFDEF3, #E0EAFC)",/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    backgroundColor:"white"
 
     
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
+ 
+    icon:{
+      margin: theme.spacing(1),
+      fontSize:"100px",
+
+    },
+
   form: {
-    width: '80%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-    background: "#E0EAFC",/* fallback for old browsers */
-    background: "-webkit-linear-gradient(to right, #CFDEF3, #E0EAFC)",  /* Chrome 10-25, Safari 5.1-6 */
-    background: "linear-gradient(to right, #CFDEF3, #E0EAFC)",/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */},
-  submit: {
-    margin: theme.spacing(3, 0, 2),
+    width: '80%', 
+    backgroundColor:"white",
+    paddingBottom:"10%",
+    paddingTop:"10%",
+    paddingRight:"1%"
   },
+  submit: {
+    margin: theme.spacing(1),
+  },
+  inp:{
+    margin:theme.spacing(1),
+    color:"white"
+  }
 }));
 
 export default function SignUp() {
@@ -70,13 +82,11 @@ export default function SignUp() {
   }
 
   return (
-    <Layout>
+    <DynamicComponent2>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+          <MailRoundedIcon className={classes.icon}/>
         
         <form className={classes.form} noValidate onSubmit={sendEmail}>
           <Grid container spacing={2}>
@@ -89,6 +99,9 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                className={classes.inp}
+                inputProps={{ style: { fontFamily: 'nunito', color: 'white',borderColor:"white",borderBottomColor:"white",borderBlockColor:"white"}}}
+
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -99,6 +112,8 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                className={classes.inp}
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -109,6 +124,8 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                className={classes.inp}
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -121,7 +138,9 @@ export default function SignUp() {
                 label="Message"
                 type="test"
                 id="text"
-                autoComplete="current-password"
+                className={classes.inp}
+
+                
               />
             </Grid>
             
@@ -144,6 +163,6 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
-    </Layout>
+    </DynamicComponent2>
   );
 }

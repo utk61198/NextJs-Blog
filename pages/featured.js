@@ -9,6 +9,11 @@ import Typical from 'react-typical'
 import React, {Component} from 'react';
 import Typist from 'react-typist';
 import Hero from "../components/Hero"
+import dynamic from 'next/dynamic'
+
+
+const DynamicComponent2 = dynamic(() => import('../components/Layout'))
+
 
 
 
@@ -46,7 +51,7 @@ export default function Featured({ posts }) {
       </head>
 
 
-    <Layout>
+    <DynamicComponent2>
 
       {/* <Hero/> */}
    
@@ -55,7 +60,7 @@ export default function Featured({ posts }) {
       <PostList posts={posts}/>
       {/* <SideList posts={posts}/> */}
   
-    </Layout>
+    </DynamicComponent2>
     </div>
     
 

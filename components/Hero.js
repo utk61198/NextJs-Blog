@@ -17,11 +17,16 @@ const useStyles = makeStyles((theme) => ({
 
 
   container:{
-     background:"url(/herobg2.jpg)",
-    height: '80vh',
+    //  background:"url(/herobg2.jpg)",
+
+    background: "#232526", /* fallback for old browsers */
+    background: "-webkit-linear-gradient(to right, #414345, #232526)",  /* Chrome 10-25, Safari 5.1-6 */
+    background: "linear-gradient(to right, #414345, #232526)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+    height: '85vh',
     width:'94%',
     marginLeft:"3%",
-    borderRadius:"1%",
   
 
     // width:"80%",
@@ -52,7 +57,7 @@ export default function Hero() {
     </head>
     <Grid
     container
-    direction="row"
+    direction="column"
     justify="center"
     alignItems="center"
     className={classes.container}
@@ -69,28 +74,30 @@ export default function Hero() {
   </Typography>
 
 <Typist>
-  <Typography variant="h4" align="center"
+  <Typography variant="h4" component="p" align="center"
   style={{
-    color:"white",
+    color:"#F9D342",
     fontFamily:"Monoton"
     
    
   }}> 
   
-  Welcome
-  <br></br>
-   to
-  <br>
 
-  </br> Daily Reboots
-  <br></br>
-  
-<span>Technology</span>
-  <Typist.Backspace count={10} delay={350} />
+
+Welcome &nbsp; to &nbsp; Daily &nbsp; Reboots 
+&nbsp;
+<br></br>
+<br>
+</br>
+  Latest &nbsp;technolology&nbsp;  updates &nbsp;
+
+
+
+  {/* <Typist.Backspace count={10} delay={350} />
   <span>Development</span>
   <Typist.Backspace count={11} delay={350} />
   <span>News</span>
-  <Typist.Backspace count={4} delay={350} />
+  <Typist.Backspace count={4} delay={350} /> */}
 
 
 </Typography>

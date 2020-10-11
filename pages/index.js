@@ -1,4 +1,3 @@
-import Layout from "../components/Layout"
 import PostList from "../components/PostList"
 import { makeStyles } from '@material-ui/core/styles';
 import { Height } from "@material-ui/icons";
@@ -9,6 +8,12 @@ import Typical from 'react-typical'
 import React, {Component} from 'react';
 import Typist from 'react-typist';
 import Hero from "../components/Hero"
+import Layout from "../components/Layout"
+import dynamic from 'next/dynamic'
+
+
+const DynamicComponent2 = dynamic(() => import('../components/Layout'))
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +50,7 @@ export default function Index({ posts }) {
       </head>
 
 
-    <Layout>
+    <DynamicComponent2>
 
       <Hero/>
    
@@ -54,7 +59,7 @@ export default function Index({ posts }) {
       <PostList posts={posts}/>
       {/* <SideList posts={posts}/> */}
   
-    </Layout>
+    </DynamicComponent2>
     </div>
     
 

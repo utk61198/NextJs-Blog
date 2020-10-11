@@ -30,7 +30,6 @@ const useStyles = makeStyles({
    flexDirection:"column",
     alignItems:"center",
     justifyContent:"center",
-    marginLeft:"5%",
     marginTop:"2%"
 
   
