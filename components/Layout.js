@@ -16,6 +16,7 @@ import SideList from './SideList'
 
 
 
+
 const useStyles = makeStyles((theme) => ({
   root:{
     // background: 'rgb(177,179,171)',
@@ -30,7 +31,6 @@ width: "100%",
 float: "left",
 top: 0,
 padding: "none",
-position: "fixed", /* optional depending on what you want to do in your app */
 
   }
   
@@ -46,22 +46,14 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
+     
       <Head>
         <title>DailyReboots</title>
         <link rel="icon" href="/favicon.ico" />
         <script data-ad-client="ca-pub-9565175122331472" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </Head>
-    
-
-      <header >
-        <Appbar/>
-        <h1>
-          {/* <Link href="/">
-            <a>Featured Posts</a>
-          </Link> */}
-        </h1>
-      </header>
-    <main>{children}</main>
+      <Appbar/>
+    <main className={classes.main}>{children}</main>
 <FooterPage></FooterPage>
      
       </div>

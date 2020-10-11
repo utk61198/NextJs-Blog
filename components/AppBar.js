@@ -1,191 +1,98 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import {NavDropdown,Form,FormControl} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {makeStyles,Typography} from "@material-ui/core"
 import Link from "next/link"
+import MenuIcon from '@material-ui/icons/Menu';
 
 
-const drawerWidth = 240;
+const useStyles=makeStyles({
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
+appbar:{
 
-  },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    backgroundColor:"black",
-    paddingTop:"2%",
-    color:"white"
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: drawerWidth,
-    backgroundColor:"black"
+  backgroundColor:"black",
+  color:"#F9D342"
+},
+navlink:{
+  color:"#F9D342",
+  fontFamily:"Oswald",
+  textDecoration:"none"
+  
+}
 
-  },
-  title: {
-    flexGrow: 1,
-   
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    backgroundColor:"black"
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
-    backgroundColor:"black"
+})
 
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginRight: -drawerWidth,
-    backgroundColor:"black"
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: 0,
-    backgroundColor:"black",
-    color:"white"
+export default function Appbar(){
+  const classes=useStyles()
+  
 
-  },
-  list:{
-    backgroundColor:"black",
-    color:"white"
 
-  },
-  icon:{
-    color:"white"
 
-  }
-}));
 
-export default function Appbar() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  return(
+    <div>
+    <head>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
+  </head>
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+<Navbar collapseOnSelect expand="lg" className={classes.appbar}>
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      
-      >
-        <Toolbar>
-          <Link href="/">
-          <Typography variant="h3" noWrap className={classes.title} align="left" paddingTop="1%">
+<Navbar.Brand> <Link href="/">
+          <Typography variant="h3" noWrap  align="left" paddingTop="1%">
             <img src="/logo.png" style={{
-   height:"80px",
+   height:"90px",
    cursor:"pointer"
 
             }}/>
             </Typography>
-          </Link>
-         
+          </Link></Navbar.Brand>
 
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            className={clsx(open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className={classes.drawerHeader} />
-      
-      </main>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="right"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose} className={classes.icon}>
-            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <List className={classes.list}>
-         <ListItem button>
-          <ListItemText><Link href="/"><a>BLOG</a></Link></ListItemText>
-         </ListItem>
-         <ListItem button>
-          <ListItemText><Link href="/featured">FEATURED</Link></ListItemText>
-         </ListItem>
-         <ListItem button>
-          <ListItemText>ABOUT</ListItemText>
-         </ListItem>
-         <ListItem button>
-          <ListItemText>CONTACT</ListItemText>
-         </ListItem>
-        </List>
+
+
+  <Navbar.Toggle color="#F9D342" aria-controls="responsive-navbar-nav">
+
+    <MenuIcon className={classes.navlink}/>
+  </Navbar.Toggle>
+
+
+
+
+
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="ml-auto">
+
+
+      <Nav.Link href="/" ><Typography variant="h6" className={classes.navlink}>
+      BLOG
+        </Typography></Nav.Link>
+
+
+        <Nav.Link href="/featured" ><Typography  variant="h6" className={classes.navlink}>
+        FEATURED
+        </Typography></Nav.Link>
+
+
+        <Nav.Link><Typography  variant="h6" className={classes.navlink}>
+        ABOUT
+        </Typography></Nav.Link>
+
+
+        <Nav.Link href="/contact"><Typography  variant="h6" className={classes.navlink}>
+       CONTACT
+        </Typography></Nav.Link>
        
-      </Drawer>
+   
+    </Nav>
+   
+  </Navbar.Collapse>
+</Navbar>
     </div>
-  );
+
+
+
+    
+  )
 }

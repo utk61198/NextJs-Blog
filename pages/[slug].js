@@ -1,42 +1,78 @@
-import React from "react"
+import Layout from "../components/Layout"
+import PostList from "../components/PostList"
+import { makeStyles } from '@material-ui/core/styles';
+import { Height } from "@material-ui/icons";
+import SideList from "../components/SideList"
+import { Grid,Container,Typography} from "@material-ui/core";
 import Head from "next/head"
-import Layout from "../../components/Layout"
-import Post from "../../components/Post"
-import Markdown from "react-markdown"
-import Author from "../../components/Author"
-import { makeStyles, rgbToHex } from '@material-ui/core/styles';
-import { Grid } from "@material-ui/core"
-import SideList from "../../components/SideList"
+import Typical from 'react-typical'
+import React, {Component} from 'react';
 
+import dynamic from 'next/dynamic'
+
+
+const DynamicComponent = dynamic(() => import('../components/Post'))
+const DynamicComponent2 = dynamic(() => import('../components/Layout'))
+
+
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+
+  grid:{
+    // background: 'rgb(177,179,171)',
+    // background: 'radial-gradient(circle, rgba(177,179,171,1) 0%, rgba(82,84,82,1) 100%)',
+    // backgroundImage:'url(/bg.jpg)',
+    // Height:"100%",
+    // backgroundPosition:"center",
+    // backgroundRepeat:"no-repeat",
+    // backgroundSize:"cover"
+    
+  },
+  container:{
+
+
+  }
+ 
+  
+ 
+  
+}));
 export default function Slug({ post }) {
+  const classes=useStyles()
+
 
 
 
   return (
-    <div>
-      <Head>
-      <meta name="desciption" content={post.fields.title}/>
-      <meta name="title" content={post.fields.title}/>
-      </Head>
+  <div className={classes.container}>
+      <head>
+     
+        
+     
+      </head>
 
-      
-    <Layout>
-      
+
+    <DynamicComponent2>
+
+      {/* <Hero/> */}
+   
+   
+
+      <DynamicComponent post={post}/>
+      {/* <SideList posts={posts}/> */}
   
-
-
-      <Post post={post}/>
-    </Layout>
-
-
-
-    </div>)
-  
-
-
+    </DynamicComponent2>
+    </div>
     
-}
 
+
+
+
+  )
+}
 export async function getStaticProps(context) {
   // Create an instance of the Contentful JavaScript SDK
   const client = require("contentful").createClient({

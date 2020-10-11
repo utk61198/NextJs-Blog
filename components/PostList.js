@@ -15,6 +15,7 @@ import { Divider } from '@material-ui/core';
 
 
 
+
 const useStyles = makeStyles({
   root: {
     borderRadius:"5%"
@@ -45,6 +46,10 @@ const useStyles = makeStyles({
      color:"white",
      fontSize:"18px"
      
+   },
+   link:{
+     textDecoration:"none",
+     color:"#F9D342"
    }
 });
 
@@ -115,7 +120,7 @@ marginBottom:"2%"
 style={{
   fontFamily:"Oswald"
 }} >
-            <a  href={`/post/${post.fields.slug}`}>{post.fields.title}</a>  </Typography>
+            <a className={classes.link} href={`/${post.fields.slug}`}>{post.fields.title}</a>  </Typography>
             
             <Typography gutterBottom variant="body2" color="inherit"
             style={{
@@ -132,7 +137,7 @@ style={{
 }} >
            {post.fields.description}  </Typography>
 
-<Button size="small"   href={`/post/${post.fields.slug}`} className={classes.btn}>
+<Button size="small"   href={`/${post.fields.slug}`} className={classes.btn}>
 <u>Read more..</u></Button>
 </Typography>
 
@@ -144,10 +149,6 @@ style={{
 
 
 </Grid>
-
- 
-
-
 
 <Divider variant="middle"
 style={{

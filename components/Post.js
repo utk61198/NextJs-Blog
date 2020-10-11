@@ -4,16 +4,17 @@ import Author from "./Author"
 import Head from "next/head"
 import Link from "next/link"
 import { Typography ,Paper} from '@material-ui/core';
-import { makeStyles, rgbToHex } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+
 import CardMedia from '@material-ui/core/CardMedia';
 
 
 
 const useStyles = makeStyles({
+
+  
 
   root:{maxWidth:700,
   marginBottom:"5%",
@@ -32,7 +33,7 @@ container:{
   justifyContent:"center",
   maxWidth:"80%",
   color:"#F9D342",
-  marginLeft:"10%"
+  marginLeft:"10%",
 
 
   // backgroundColor:"#90caf9"
@@ -55,7 +56,11 @@ export default function Post({ post }) {
   return (
     
       <div className={classes.container}>
-      <Typography gutterBottom variant="h4" component="h2"
+        <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
+        </Head>
+      <Typography gutterBottom variant="h3" component="h2"
       align="center"
 style={{
   fontFamily:"Oswald"

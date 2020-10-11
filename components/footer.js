@@ -49,6 +49,7 @@ export default function FooterPage() {
         <Container maxWidth="sm">
           <Typography variant="body1"></Typography>
           <Copyright />
+         
         </Container>
       </footer>
     </div>

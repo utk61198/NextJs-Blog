@@ -69,7 +69,7 @@ export default function Hero() {
   </Typography>
 
 <Typist>
-  <Typography variant="h3" align="center"
+  <Typography variant="h4" align="center"
   style={{
     color:"white",
     fontFamily:"Monoton"

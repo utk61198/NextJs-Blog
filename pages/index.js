@@ -11,9 +11,6 @@ import Typist from 'react-typist';
 import Hero from "../components/Hero"
 
 
-
-
-
 const useStyles = makeStyles((theme) => ({
 
   grid:{
@@ -39,6 +36,8 @@ export default function Index({ posts }) {
 
   return (
   <div>
+
+
       <head>
      
         
@@ -78,7 +77,7 @@ export async function getStaticProps() {
     .getEntries({ content_type: "blogpost" })
     .then((response) => response.items)
 
-  return {
+  return { 
     props: {
       posts,
     },
