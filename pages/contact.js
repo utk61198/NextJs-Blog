@@ -16,6 +16,8 @@ import emailjs from 'emailjs-com';
 import Layout from "../components/Layout"
 import dynamic from 'next/dynamic'
 import MailRoundedIcon from '@material-ui/icons/MailRounded';
+import { motion } from "framer-motion"
+
 
 
 const DynamicComponent2 = dynamic(() => import('../components/Layout'))
@@ -36,33 +38,43 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(6),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor:"white"
+    backgroundColor:"white",
+    borderStyle:"outset",
+    borderColor:"#FEE715FF",
+    borderWidth:10,
+    marginBottom:theme.spacing(6)
+
+
 
     
   },
  
     icon:{
-      margin: theme.spacing(1),
-      fontSize:"100px",
+      // margin: theme.spacing(1),
+      fontSize:"80px",
+      maginTop:"5%"
 
     },
 
   form: {
     width: '80%', 
     backgroundColor:"white",
+    
     paddingBottom:"10%",
     paddingTop:"10%",
-    paddingRight:"1%"
+    paddingRight:"1%",
+  
+  
   },
   submit: {
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
   },
   inp:{
-    margin:theme.spacing(1),
+    // margin:theme.spacing(1),
     color:"white"
   }
 }));
@@ -145,15 +157,43 @@ export default function SignUp() {
             </Grid>
             
           </Grid>
-          <Button
+          {/* <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-          >
-            Leave a message
-          </Button>
+          > */}
+          <Typography align="center" style={{
+            color:"white"
+          }}>
+          <motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+    type="submit"
+    className={classes.submit}
+    style={{
+      borderRadius:10,
+      borderWidth:0,
+      width:"50%",
+      height:"40px",
+      marginTop:"4%",
+      backgroundColor:"#FEE715FF"
+    }}
+
+  >     <Typography align="center" variant="title" style={{
+    color:"black",
+    fontWeight:'bold'
+  }}>      Submit
+  </Typography>
+           
+            </motion.button>
+
+          </Typography>
+       
+
+           
+          {/* </Button> */}
           <Grid container justify="flex-end">
             
           </Grid>

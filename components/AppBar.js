@@ -75,7 +75,7 @@ export default function Appbar(){
         </Typography></Nav.Link>
 
 
-        <Nav.Link><Typography  variant="h5" className={classes.navlink}>
+        <Nav.Link href="/about"><Typography  variant="h5" className={classes.navlink}>
         ABOUT
         </Typography></Nav.Link>
 

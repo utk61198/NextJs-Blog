@@ -8,7 +8,8 @@ import Typical from 'react-typical'
 import React, {Component} from 'react';
 import Typist from 'react-typist';
 import { urlObjectKeys } from 'next/dist/next-server/lib/utils';
-
+import {motion} from "framer-motion"
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 
@@ -19,11 +20,10 @@ const useStyles = makeStyles((theme) => ({
   container:{
     //  background:"url(/herobg2.jpg)",
 
-    background: "#232526", /* fallback for old browsers */
-    background: "-webkit-linear-gradient(to right, #414345, #232526)",  /* Chrome 10-25, Safari 5.1-6 */
-    background: "linear-gradient(to right, #414345, #232526)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-
+    // background: "#232526", /* fallback for old browsers */
+    // background: "-webkit-linear-gradient(to right, #414345, #232526)",  /* Chrome 10-25, Safari 5.1-6 */
+    // background: "linear-gradient(to right, #414345, #232526)", /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background:"#101820FF",
     height: '85vh',
     width:'94%',
     marginLeft:"3%",
@@ -32,11 +32,13 @@ const useStyles = makeStyles((theme) => ({
     // width:"80%",
     backgroundSize:"cover",
 
-    // display:"flex",
-    // flexDirection:"column",
-    //  alignItems:"center",
-    //  justifyContent:"center",
- 
+  },
+  expandmore:{
+    fontSize:"50px",
+    color:"#FEE715FF"
+
+
+
   }
 
  
@@ -58,20 +60,36 @@ export default function Hero() {
     <Grid
     container
     direction="column"
-    justify="center"
+    justify="space-evenly"
     alignItems="center"
     className={classes.container}
-    >
-      <Typography
-      variant="h2" align="center"
-  style={{
-    color:"white",
-    fontFamily:"Special Elite"
+    >  
     
-   
-  }}>
+<motion.div
+    animate={{
+      scale: [1, 2, 2, 1, 1],
+      rotate: [0, 0, 360, 360, 0],
+      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+    }}
 
-  </Typography>
+    transition={{
+      duration: 5,
+      ease: "easeInOut",
+      times: [0, 0.2, 0.5, 0.8, 1],
+      loop: Infinity,
+      repeatDelay: 1
+    }}
+    style={{
+
+    }}
+  >
+   <img src="/heroloader.png" style={{
+   height:"90px",
+
+            }}/>
+
+</motion.div>
+
 
 <Typist>
   <Typography variant="h4" component="p" align="center"
@@ -82,22 +100,11 @@ export default function Hero() {
    
   }}> 
   
+TECHNOLOGY 
+<br/>
+BLOG
 
 
-Welcome &nbsp; to &nbsp; Daily &nbsp; Reboots 
-&nbsp;
-<br></br>
-<br>
-</br>
-  Latest &nbsp;technolology&nbsp;  updates &nbsp;
-
-
-
-  {/* <Typist.Backspace count={10} delay={350} />
-  <span>Development</span>
-  <Typist.Backspace count={11} delay={350} />
-  <span>News</span>
-  <Typist.Backspace count={4} delay={350} /> */}
 
 
 </Typography>
@@ -105,10 +112,31 @@ Welcome &nbsp; to &nbsp; Daily &nbsp; Reboots
 
 
 </Typist>
+<motion.div
+      animate={{
+        scale: [1, 1, 1.2, 1.2, 1],
+        rotate: [0, 0, 0, 0, 0],
+        borderRadius: ["20%", "20%", "50%", "50%", "20%"]
+      }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+        times: [0, 0.2, 0.5, 0.8, 1],
+        loop: Infinity,
+        repeatDelay:0.1
+      }}
+    >
+<ExpandMoreIcon className={classes.expandmore}></ExpandMoreIcon>
+</motion.div>
+
+
+
 
 
 
   </Grid>
+
+  
   </div>
     
 

@@ -12,6 +12,8 @@ import { palette } from '@material-ui/system';
 import Particles from "react-tsparticles";
 import Post from './Post';
 import { Divider } from '@material-ui/core';
+import { motion } from "framer-motion"
+
 
 
 
@@ -52,10 +54,12 @@ const useStyles = makeStyles({
    }
 });
 
+
 export default function PostList({ posts = [] }) {
   const classes = useStyles();
 
   return (
+
 <div className={classes.container}>
   <head>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"/>
@@ -65,17 +69,27 @@ export default function PostList({ posts = [] }) {
     
     {posts.map((post) => (
 
+
+
 <article key={post.sys.id}>
+  
+
+<motion.div whileHover={{ scale: 1.1 }} 
+// whileTap={{ scale: 1 }
+// }
 
 
-
+>
 <Grid
   container
   direction="row"
   justify="space-around"
   alignItems="center"
   >
+    
 
+
+ 
 <Paper
 elevation={5}
   style={{
@@ -108,6 +122,7 @@ elevation={5}
 
 
 </Paper>
+
 <div style={{
 maxWidth:700,
  paddingLeft:"5%",
@@ -115,6 +130,7 @@ color:"#F9D342",
 marginBottom:"2%"
 
 }}>
+  
 <Typography gutterBottom variant="h4" component="h2"
 style={{
   fontFamily:"Oswald"
@@ -147,7 +163,10 @@ style={{
 
 
 
+
 </Grid>
+</motion.div>
+
 
 <Divider variant="middle"
 style={{
@@ -159,8 +178,10 @@ style={{
 
     </article>
 
+
   ))}
   </div>
+
 
 
   )

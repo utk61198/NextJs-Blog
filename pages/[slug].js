@@ -9,6 +9,7 @@ import Typical from 'react-typical'
 import React, {Component} from 'react';
 
 import dynamic from 'next/dynamic'
+import Comments from "../components/comments"
 
 
 const DynamicComponent = dynamic(() => import('../components/Post'))
@@ -32,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
     
   },
   container:{
+    display:"flex",
+    alignSelf:"center",
+    flexDirection:"column",
+      width:"80%",
+      marginLeft:"10%"
+    
 
 
   }
@@ -47,7 +54,7 @@ export default function Slug({ post }) {
 
 
   return (
-  <div className={classes.container}>
+  <div>
       <head>
      
         
@@ -57,14 +64,21 @@ export default function Slug({ post }) {
 
     <DynamicComponent2>
 
-      {/* <Hero/> */}
    
    
 
       <DynamicComponent post={post}/>
-      {/* <SideList posts={posts}/> */}
+      <div className={classes.container}>
+      <Comments fullUrl={post.fields.slug} id={post.fields.slug} />
+
+      </div>
+
   
     </DynamicComponent2>
+
+
+
+
     </div>
     
 
